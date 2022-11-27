@@ -24,7 +24,7 @@ public class Jugador {
     private Socket socket;
     ObjectOutputStream salida;
     private DataOutputStream salidaDatos;
-    Pantalla pantalla;
+    PantallaGuerreros pantalla;
     private int vida;
     String nombre ;
     private ArrayList<Guerrero> guerreros = new ArrayList<>();
@@ -32,7 +32,7 @@ public class Jugador {
      
      ThreadJugador threadCliente;
 
-    public Jugador(Pantalla pantalla) {
+    public Jugador(PantallaGuerreros pantalla) {
         this.pantalla = pantalla;
         conectar();
     }
@@ -55,11 +55,11 @@ public class Jugador {
         }
     }
 
-    public Pantalla getPantalla() {
+    public PantallaGuerreros getPantalla() {
         return pantalla;
     }
 
-    public void setPantalla(Pantalla pantalla) {
+    public void setPantalla(PantallaGuerreros pantalla) {
         this.pantalla = pantalla;
     }
 

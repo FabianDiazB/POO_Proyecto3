@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author diego
  */
-public class Pantalla extends javax.swing.JFrame {
+public class PantallaGuerreros extends javax.swing.JFrame {
     
     Jugador jugador;
     int contadorG;
   
-    public Pantalla() {
+    public PantallaGuerreros() {
         initComponents();
         contadorG=0;
         jugador = new Jugador(this);
@@ -195,7 +195,8 @@ public class Pantalla extends javax.swing.JFrame {
     }//GEN-LAST:event_btnArmasMouseExited
 
     private void btnArmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArmasActionPerformed
-        
+        PantallaArmas guiArmas = new PantallaArmas(this.jugador.getGuerreros());
+        guiArmas.setVisible(true);
     }//GEN-LAST:event_btnArmasActionPerformed
 
     private void btnArmasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArmasMouseEntered
@@ -248,20 +249,21 @@ public class Pantalla extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaGuerreros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaGuerreros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaGuerreros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pantalla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaGuerreros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pantalla().setVisible(true);
+                new PantallaGuerreros().setVisible(true);
             }
         });
     }
