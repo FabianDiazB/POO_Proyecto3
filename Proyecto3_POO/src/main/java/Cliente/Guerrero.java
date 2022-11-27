@@ -38,5 +38,8 @@ public class Guerrero {
         this.tipo = tipo;
     }
     
-    
+    public void addArma(String nombre){
+        Arma nueva = new Arma(nombre);
+        armas.add(nueva);
+    }
 }

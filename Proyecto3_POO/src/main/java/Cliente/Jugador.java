@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
  * @author diego
  */
 public class Jugador {
+    private int ID;
     private final String IP = "localhost";
     private final int PORT = 8084;
     private Socket socket;
@@ -34,9 +35,14 @@ public class Jugador {
 
     public Jugador(PantallaGuerreros pantalla) {
         this.pantalla = pantalla;
+        generarID();
         conectar();
     }
-
+    
+    public void generarID(){
+        int r = (int)(Math.random() *9000 + 1000);
+        this.ID = r;
+    }
     
     
     public void conectar(){
