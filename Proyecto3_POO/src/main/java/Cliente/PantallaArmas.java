@@ -6,6 +6,7 @@ package Cliente;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,12 +15,14 @@ import java.util.ArrayList;
 public class PantallaArmas extends javax.swing.JFrame {
     ArrayList<Guerrero> listaGuerreros;
     private int cA1,cA2,cA3,cA4=0;
+    Jugador player;
     
     /**
      * Creates new form PantallaArmas
      */
-    public PantallaArmas(ArrayList<Guerrero> listaGuerreros) {
+    public PantallaArmas(ArrayList<Guerrero> listaGuerreros, Jugador j) {
         initComponents();
+        this.player = j;
         this.listaGuerreros = listaGuerreros;
         ponerTextos();
     }
@@ -60,12 +63,14 @@ public class PantallaArmas extends javax.swing.JFrame {
         btnG2 = new javax.swing.JButton();
         btnG3 = new javax.swing.JButton();
         btnG4 = new javax.swing.JButton();
+        btnG5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font("Source Sans Pro Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Armas de Guerreros");
@@ -197,6 +202,24 @@ public class PantallaArmas extends javax.swing.JFrame {
             }
         });
 
+        btnG5.setBackground(new java.awt.Color(153, 0, 0));
+        btnG5.setFont(new java.awt.Font("Gill Sans MT", 1, 18)); // NOI18N
+        btnG5.setForeground(new java.awt.Color(255, 255, 255));
+        btnG5.setText("Listo");
+        btnG5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnG5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnG5MouseExited(evt);
+            }
+        });
+        btnG5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnG5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -225,10 +248,6 @@ public class PantallaArmas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(226, 226, 226))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnG1)
@@ -239,6 +258,15 @@ public class PantallaArmas extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(btnG4)
                 .addGap(14, 14, 14))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(226, 226, 226))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnG5)
+                        .addGap(315, 315, 315))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +295,9 @@ public class PantallaArmas extends javax.swing.JFrame {
                     .addComponent(btnG2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnG3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnG4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(btnG5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -371,6 +401,25 @@ public class PantallaArmas extends javax.swing.JFrame {
         cA4+=1;
     }//GEN-LAST:event_btnG4ActionPerformed
 
+    private void btnG5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnG5MouseEntered
+        btnG5.setBackground(new java.awt.Color(255,255,255));
+        btnG5.setForeground(Color.black);
+    }//GEN-LAST:event_btnG5MouseEntered
+
+    private void btnG5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnG5MouseExited
+        btnG5.setBackground(new java.awt.Color(153,0,0));
+        btnG5.setForeground(Color.white);
+    }//GEN-LAST:event_btnG5MouseExited
+
+    private void btnG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnG5ActionPerformed
+        if(cA1>3 && cA2>3 && cA3>3 && cA4>3){
+            JOptionPane.showMessageDialog(this, "Espere a que el admin inicie la partida","WAITING",JOptionPane.DEFAULT_OPTION);
+        }else{
+            JOptionPane.showMessageDialog(this, "Debe completar sus armas","ARMAS",JOptionPane.DEFAULT_OPTION);
+
+        }
+    }//GEN-LAST:event_btnG5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -383,6 +432,7 @@ public class PantallaArmas extends javax.swing.JFrame {
     private javax.swing.JButton btnG2;
     private javax.swing.JButton btnG3;
     private javax.swing.JButton btnG4;
+    private javax.swing.JButton btnG5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

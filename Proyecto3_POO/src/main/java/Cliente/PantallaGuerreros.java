@@ -195,8 +195,9 @@ public class PantallaGuerreros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnArmasMouseExited
 
     private void btnArmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArmasActionPerformed
-        PantallaArmas guiArmas = new PantallaArmas(this.jugador.getGuerreros());
+        PantallaArmas guiArmas = new PantallaArmas(this.jugador.getGuerreros(),this.jugador);
         guiArmas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnArmasActionPerformed
 
     private void btnArmasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArmasMouseEntered
