@@ -6,13 +6,15 @@ package Servidor;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author diego
  */
 public class ServerConnectionsThread extends Thread{
-    private boolean isRunning = true;
+    boolean isRunning = true;
     Servidor server;
 
     public ServerConnectionsThread(Servidor server) {
@@ -21,7 +23,7 @@ public class ServerConnectionsThread extends Thread{
     
     public void run(){
         
-        while (isRunning) {            
+        while (isRunning) {
             try {
                 server.pantalla.write("Esperando jugador ... ");
                 
@@ -35,7 +37,16 @@ public class ServerConnectionsThread extends Thread{
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
+            
         }
+        if(this.server.isIniciada()){
+                try {
+                    System.out.println("iniciadaaaaaa");
+                    this.server.iniciarPartida();
+                } catch (IOException ex) {
+                    Logger.getLogger(ServerConnectionsThread.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
     }
     
 }

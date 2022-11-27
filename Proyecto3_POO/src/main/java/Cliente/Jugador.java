@@ -31,10 +31,12 @@ public class Jugador {
     private ArrayList<Guerrero> guerreros = new ArrayList<>();
      
      
-     ThreadJugador threadCliente;
+     ThreadJugador threadJugador;
 
     public Jugador(PantallaGuerreros pantalla) {
         this.pantalla = pantalla;
+        this.socket = new Socket();
+        this.threadJugador = new ThreadJugador(socket, this);
         generarID();
         conectar();
     }
@@ -50,8 +52,8 @@ public class Jugador {
             socket = new Socket(IP, PORT);
             salida = new ObjectOutputStream(socket.getOutputStream());
             salidaDatos = new DataOutputStream(socket.getOutputStream());
-            threadCliente = new ThreadJugador(socket, this);
-            threadCliente.start();
+            threadJugador = new ThreadJugador(socket, this);
+            threadJugador.start();
             
             // al conectarse, envía el nombre
             this.nombre = JOptionPane.showInputDialog("Nombre: ");

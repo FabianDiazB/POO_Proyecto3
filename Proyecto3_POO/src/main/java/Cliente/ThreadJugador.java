@@ -20,21 +20,31 @@ import java.util.logging.Logger;
 public class ThreadJugador extends Thread{
     boolean isrunnig = true;
     private Socket socket;
-    private Jugador cliente;
+    private Jugador player;
     private ObjectInputStream entrada;
+    private DataInputStream entradaDatos;
 
-    public ThreadJugador(Socket socket, Jugador cliente) {
+    public ThreadJugador(Socket socket, Jugador player) {
         try {
             this.socket = socket;
-            this.cliente = cliente;
+            this.player = player;
             entrada = new ObjectInputStream(socket.getInputStream());
+            entradaDatos = new DataInputStream(socket.getInputStream());
+
         } catch (IOException ex) {
             //Logger.getLogger(ThreadCliente.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("errores");
         }
     }
     
     public void run(){
-        
+        while(isrunnig){
+            System.out.println("entrando al hilo de ThreadJugador::::");
+            try {
+                System.out.println(entradaDatos.readUTF());
+            } catch (Exception e) {
+            }
+        }
     }
     
     
