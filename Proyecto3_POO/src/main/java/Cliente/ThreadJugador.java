@@ -12,6 +12,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,12 +39,23 @@ public class ThreadJugador extends Thread{
     }
     
     public void run(){
-        while(isrunnig){
-            System.out.println("entrando al hilo de ThreadJugador::::");
+        
+        while(true){
             try {
-                System.out.println(entradaDatos.readUTF());
+                String comando = (String)entrada.readObject();
+                System.out.println(comando);
+                JOptionPane.showMessageDialog(this.player.pantallaG, "Iniciando partida...", "GET READY", JOptionPane.DEFAULT_OPTION);
+                this.player.pantallaA.dispose();
+                PantallaJuego GUIJuego = new PantallaJuego(this.player);
+                this.player.pantallaJuego = GUIJuego;
+                GUIJuego.setVisible(true);
+                break;
             } catch (Exception e) {
             }
+        }
+        
+        while(isrunnig){
+            System.out.println("jugando");
         }
     }
     

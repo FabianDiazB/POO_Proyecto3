@@ -14,9 +14,11 @@ import java.util.Random;
 public class Arma {
     private String nombre;
     private ArrayList<Integer> damage = new ArrayList<>();
+    private Boolean usada;
     
     public Arma(String nombre) {
         this.nombre = nombre;
+        this.usada = false;
         randomDamage();
     }
     public void randomDamage(){ // para agregar porcentaje random a cada tipo
@@ -24,6 +26,31 @@ public class Arma {
                 int r = (int)(Math.random()*80 + 20);
                 damage.add(r);
             }
+            
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<Integer> getDamage() {
+        return damage;
+    }
+
+    public void setDamage(ArrayList<Integer> damage) {
+        this.damage = damage;
+    }
+
+    public Boolean getUsada() {
+        return usada;
+    }
+
+    public void setUsada(Boolean usada) {
+        this.usada = usada;
     }
     
     

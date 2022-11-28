@@ -25,7 +25,7 @@ public class ServerConnectionsThread extends Thread{
         
         while (isRunning) {
             try {
-                server.pantalla.write("Esperando jugador ... ");
+                server.pantalla.write("Esperando jugador ... \n");
                 
                 Socket socket = server.server.accept();
                 ThreadServidor ts = new ThreadServidor(socket, server);
@@ -41,7 +41,7 @@ public class ServerConnectionsThread extends Thread{
         }
         if(this.server.isIniciada()){
                 try {
-                    System.out.println("iniciadaaaaaa");
+                    System.out.println("Partida iniciada ");
                     this.server.iniciarPartida();
                 } catch (IOException ex) {
                     Logger.getLogger(ServerConnectionsThread.class.getName()).log(Level.SEVERE, null, ex);

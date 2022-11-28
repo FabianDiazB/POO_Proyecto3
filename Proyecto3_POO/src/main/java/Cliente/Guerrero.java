@@ -15,10 +15,12 @@ public class Guerrero {
     private String nombre;
     private int tipo;
     private ArrayList<Arma> armas;
+    private int vida;
 
     public Guerrero(String nombre, int tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
+        this.vida = 100;
         this.armas = new ArrayList<Arma>();
     }
 
@@ -42,4 +44,22 @@ public class Guerrero {
         Arma nueva = new Arma(nombre);
         armas.add(nueva);
     }
+
+    public ArrayList<Arma> getArmas() {
+        return armas;
+    }
+
+    public void setArmas(ArrayList<Arma> armas) {
+        this.armas = armas;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+    
+    
 }

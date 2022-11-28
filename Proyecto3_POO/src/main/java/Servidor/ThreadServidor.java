@@ -22,7 +22,7 @@ public class ThreadServidor extends Thread{
     private ObjectInputStream entrada;
     private DataInputStream entradaDatos;
      ObjectOutputStream salida;
-     String nombre;
+     String nombre ="";
     
     private boolean isRunning = true;
 
@@ -46,7 +46,16 @@ public class ThreadServidor extends Thread{
             
         }
         server.pantalla.write("Jugador:: " + nombre + " ::conectado");
-        
+        String recibido = null;
+        try {
+            recibido = (String)entrada.readObject(); // lee el nombre
+        } catch (IOException ex) {
+            Logger.getLogger(ThreadServidor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ThreadServidor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(recibido);
+
     }
     
     

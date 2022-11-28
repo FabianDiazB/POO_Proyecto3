@@ -40,7 +40,7 @@ public class Servidor {
     
     public void iniciarPartida() throws IOException{
         for(ThreadServidor jugador: jugadoresAceptados){
-           jugador.salida.writeUTF("El admin ha iniciado la partida");
+           jugador.salida.writeObject("El admin ya inicio");
         }
     }
 

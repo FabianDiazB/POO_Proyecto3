@@ -25,7 +25,9 @@ public class Jugador {
     private Socket socket;
     ObjectOutputStream salida;
     private DataOutputStream salidaDatos;
-    PantallaGuerreros pantalla;
+    PantallaGuerreros pantallaG;
+    PantallaArmas pantallaA;
+    PantallaJuego pantallaJuego;
     private int vida;
     String nombre ;
     private ArrayList<Guerrero> guerreros = new ArrayList<>();
@@ -33,12 +35,11 @@ public class Jugador {
      
      ThreadJugador threadJugador;
 
-    public Jugador(PantallaGuerreros pantalla) {
-        this.pantalla = pantalla;
-        this.socket = new Socket();
-        this.threadJugador = new ThreadJugador(socket, this);
+    public Jugador(PantallaGuerreros pantalla) throws IOException {
+        this.pantallaG = pantalla;
         generarID();
         conectar();
+        
     }
     
     public void generarID(){
@@ -58,17 +59,18 @@ public class Jugador {
             // al conectarse, envía el nombre
             this.nombre = JOptionPane.showInputDialog("Nombre: ");
             salidaDatos.writeUTF(nombre);
+            System.out.println("el nombre de este jugador es " + nombre);
         } catch (IOException ex) {
             
         }
     }
 
-    public PantallaGuerreros getPantalla() {
-        return pantalla;
+    public PantallaGuerreros getPantallaG() {
+        return pantallaG;
     }
 
-    public void setPantalla(PantallaGuerreros pantalla) {
-        this.pantalla = pantalla;
+    public void setPantallaG(PantallaGuerreros pantallaG) {
+        this.pantallaG = pantallaG;
     }
 
     public int getVida() {
@@ -98,6 +100,22 @@ public class Jugador {
     public void addGuerrero(String nombre, int tipo){
         Guerrero nuevo = new Guerrero(nombre, tipo);
         guerreros.add(nuevo);
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public ObjectOutputStream getSalida() {
+        return salida;
+    }
+
+    public DataOutputStream getSalidaDatos() {
+        return salidaDatos;
+    }
+
+    public ThreadJugador getThreadJugador() {
+        return threadJugador;
     }
     
     

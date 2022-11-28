@@ -20,11 +20,12 @@ public class PantallaGuerreros extends javax.swing.JFrame {
     Jugador jugador;
     int contadorG;
   
-    public PantallaGuerreros() {
+    public PantallaGuerreros() throws IOException {
         initComponents();
         contadorG=0;
         jugador = new Jugador(this);
         btnArmas.setEnabled(false);
+        this.setVisible(true);
     }
 
    
@@ -197,6 +198,7 @@ public class PantallaGuerreros extends javax.swing.JFrame {
     private void btnArmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArmasActionPerformed
         PantallaArmas guiArmas = new PantallaArmas(this.jugador.getGuerreros(),this.jugador);
         guiArmas.setVisible(true);
+        this.jugador.pantallaA = guiArmas;
         this.dispose();
     }//GEN-LAST:event_btnArmasActionPerformed
 
@@ -264,7 +266,11 @@ public class PantallaGuerreros extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaGuerreros().setVisible(true);
+                try {
+                    new PantallaGuerreros().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(PantallaGuerreros.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
