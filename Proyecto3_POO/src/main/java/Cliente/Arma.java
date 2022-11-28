@@ -4,6 +4,7 @@
  */
 package Cliente;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -11,7 +12,7 @@ import java.util.Random;
  *
  * @author Usuario
  */
-public class Arma {
+public class Arma implements Serializable{
     private String nombre;
     private ArrayList<Integer> damage = new ArrayList<>();
     private Boolean usada;

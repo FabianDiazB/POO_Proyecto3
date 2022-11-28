@@ -7,6 +7,7 @@ package Cliente;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author diego
  */
-public class Jugador {
+public class Jugador implements Serializable{
     private int ID;
     private final String IP = "localhost";
     private final int PORT = 8084;

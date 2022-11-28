@@ -4,6 +4,7 @@
  */
 package Servidor;
 
+import Cliente.Jugador;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -22,7 +23,8 @@ public class ThreadServidor extends Thread{
     private ObjectInputStream entrada;
     private DataInputStream entradaDatos;
      ObjectOutputStream salida;
-     String nombre ="";
+     Jugador jugadorAsignado;
+     String nombre = "";
     
     private boolean isRunning = true;
 
@@ -46,15 +48,15 @@ public class ThreadServidor extends Thread{
             
         }
         server.pantalla.write("Jugador:: " + nombre + " ::conectado");
-        String recibido = null;
         try {
-            recibido = (String)entrada.readObject(); // lee el nombre
+            jugadorAsignado = (Jugador) entrada.readObject();
         } catch (IOException ex) {
-            Logger.getLogger(ThreadServidor.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ThreadServidor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(recibido);
+        System.out.println("Nombre obtenido;");
+        System.out.println(jugadorAsignado.getNombre());
+        
 
     }
     

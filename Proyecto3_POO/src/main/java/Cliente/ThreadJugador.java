@@ -47,6 +47,7 @@ public class ThreadJugador extends Thread{
                 JOptionPane.showMessageDialog(this.player.pantallaG, "Iniciando partida...", "GET READY", JOptionPane.DEFAULT_OPTION);
                 this.player.pantallaA.dispose();
                 PantallaJuego GUIJuego = new PantallaJuego(this.player);
+                System.out.println(player.getNombre());
                 this.player.pantallaJuego = GUIJuego;
                 GUIJuego.setVisible(true);
                 break;
@@ -54,9 +55,7 @@ public class ThreadJugador extends Thread{
             }
         }
         
-        while(isrunnig){
-            System.out.println("jugando");
-        }
+
     }
     
     

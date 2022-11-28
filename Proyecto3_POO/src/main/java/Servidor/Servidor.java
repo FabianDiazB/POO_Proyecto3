@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Servidor;
+import Juego.*;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -58,6 +59,7 @@ public class Servidor {
 
     public void setIniciada(boolean iniciada) {
         this.iniciada = iniciada;
+        
     }
 
     public PantallaServidor getPantalla() {

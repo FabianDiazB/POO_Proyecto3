@@ -4,6 +4,7 @@
  */
 package Cliente;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ import java.util.Objects;
  *
  * @author Usuario
  */
-public class Guerrero {
+public class Guerrero implements Serializable{
     private String nombre;
     private int tipo;
     private ArrayList<Arma> armas;
