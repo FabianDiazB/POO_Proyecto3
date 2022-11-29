@@ -55,6 +55,7 @@ public class ThreadJugador extends Thread{
                 System.out.println(player.getNombre());
                 this.player.pantallaJuego = GUIJuego;
                 GUIJuego.setVisible(true);
+                System.out.println("Ventana iniciada");
                 break;
             } catch (Exception e) {
             }

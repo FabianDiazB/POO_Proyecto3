@@ -31,12 +31,12 @@ public class Juego extends javax.swing.JFrame {
      * Creates new form Juego
      */
     public Juego(Jugador jugador) {
+        initComponents();
         this.jugador = jugador;
         for (Jugador juga: this.jugador.getEnemigos()){
             if (!(juga.getNombre().equals(this.jugador.getNombre())))
             this.enemigos.add(juga);
         }
-        initComponents();
         paintWarriors();
         paintPlayers();
         
