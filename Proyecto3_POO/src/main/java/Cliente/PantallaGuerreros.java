@@ -252,7 +252,8 @@ public class PantallaGuerreros extends javax.swing.JFrame {
 
     private void cmbGuerrerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGuerrerosActionPerformed
         // TODO add your handling code here:
-     //   imagen.setIcon(new ImageIcon("C:\\Users\\Sebas\\POO\\POO_Proyecto3\\POO_Proyecto3\\src\\imagenes\\"+cmbGuerreros.getSelectedItem()+".gif"));
+       System.out.println("cargando imagen necia");
+       imagen.setIcon(new ImageIcon("C:\\Users\\Sebas\\POO\\POO_Proyecto3\\POO_Proyecto3\\src\\imagenes\\"+cmbGuerreros.getSelectedItem().toString()+".gif"));
     }//GEN-LAST:event_cmbGuerrerosActionPerformed
 
     

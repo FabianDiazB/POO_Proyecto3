@@ -60,9 +60,10 @@ public class Juego extends javax.swing.JFrame {
     
     public void paintWarriors(){
         //matriz[i][j].setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto2V2/reli.png")));
-        guerrero1.setVisible(true);
-      //  guerrero1.setIcon(this.jugador.getGuerreros().get(0));
-        
+        guerrero1.setIcon(this.jugador.getGuerreros().get(0).Imagen);
+        guerrero2.setIcon(this.jugador.getGuerreros().get(1).Imagen);
+        guerrero3.setIcon(this.jugador.getGuerreros().get(2).Imagen);
+        guerrero4.setIcon(this.jugador.getGuerreros().get(3).Imagen);
     }
     
     public void HandleCommand(final String testCode){
@@ -106,7 +107,15 @@ public class Juego extends javax.swing.JFrame {
                 break;
                 
             case "SELECCIONAR":
-                
+                String seleccionado = Comando[1].toString();
+                for (Jugador seleccion: this.enemigos){
+                    if (seleccion.equals(seleccionado)){
+                        enemigo1.setIcon(seleccion.getGuerreros().get(0).Imagen);
+                        enemigo2.setIcon(seleccion.getGuerreros().get(1).Imagen);
+                        enemigo3.setIcon(seleccion.getGuerreros().get(2).Imagen);
+                        enemigo4.setIcon(seleccion.getGuerreros().get(3).Imagen);
+                    }
+                }
                 break;
                 
             default:
@@ -250,13 +259,13 @@ public class Juego extends javax.swing.JFrame {
                                     .addComponent(weapon5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(weapon1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelSeleccionLayout.createSequentialGroup()
-                        .addGap(287, 287, 287)
+                        .addGap(297, 297, 297)
                         .addComponent(guerrero2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(27, 27, 27)
                         .addComponent(guerrero3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(guerrero4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(547, Short.MAX_VALUE))
+                .addContainerGap(520, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSeleccionLayout.createSequentialGroup()
                 .addContainerGap(631, Short.MAX_VALUE)
                 .addComponent(enemigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)

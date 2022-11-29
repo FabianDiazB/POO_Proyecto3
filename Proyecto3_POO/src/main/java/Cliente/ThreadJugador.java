@@ -48,7 +48,7 @@ public class ThreadJugador extends Thread{
             try {
                 String comando = (String)entrada.readObject();
                 System.out.println(comando);
-                JOptionPane.showMessageDialog(this.player.pantallaG, "Iniciando partida...", "GET READY", JOptionPane.DEFAULT_OPTION);
+                JOptionPane.showMessageDialog(this.player.pantallaA, "Iniciando partida...", "GET READY", JOptionPane.DEFAULT_OPTION);
                 this.player.pantallaA.dispose();
                 System.out.println("esta antes de crear juego");
                 Juego GUIJuego = new Juego(this.player);
