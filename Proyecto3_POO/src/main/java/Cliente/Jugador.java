@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Cliente;
+import Juego.*;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -19,19 +20,19 @@ import javax.swing.JOptionPane;
  *
  * @author diego
  */
-public class Jugador implements Serializable{
+public class Jugador{
     private int ID;
     private final String IP = "localhost";
     private final int PORT = 8084;
     private Socket socket;
-    ObjectOutputStream salida;
+    public ObjectOutputStream salida;
     private DataOutputStream salidaDatos;
     PantallaGuerreros pantallaG;
     PantallaArmas pantallaA;
-    PantallaJuego pantallaJuego;
-    private int vida;
+    Juego pantallaJuego;
     String nombre ;
     private ArrayList<Guerrero> guerreros = new ArrayList<>();
+    private ArrayList<Jugador> enemigos = new ArrayList<>();
      
      
      ThreadJugador threadJugador;
@@ -41,6 +42,14 @@ public class Jugador implements Serializable{
         generarID();
         conectar();
         
+    }
+
+    public ArrayList<Jugador> getEnemigos() {
+        return enemigos;
+    }
+
+    public void setEnemigos(ArrayList<Jugador> enemigos) {
+        this.enemigos = enemigos;
     }
     
     public void generarID(){
@@ -72,14 +81,6 @@ public class Jugador implements Serializable{
 
     public void setPantallaG(PantallaGuerreros pantallaG) {
         this.pantallaG = pantallaG;
-    }
-
-    public int getVida() {
-        return vida;
-    }
-
-    public void setVida(int vida) {
-        this.vida = vida;
     }
 
     public String getNombre() {

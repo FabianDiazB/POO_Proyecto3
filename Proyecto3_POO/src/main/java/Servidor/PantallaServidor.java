@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  * @author diego
  */
 public class PantallaServidor extends javax.swing.JFrame {
-    Servidor server;
+    public Servidor server;
 
     /**
      * Creates new form PantallaServidor

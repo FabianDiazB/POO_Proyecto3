@@ -4,6 +4,8 @@
  */
 package Servidor;
 
+import Cliente.Jugador;
+import Cliente.PantallaGuerreros;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -26,7 +28,6 @@ public class ServerConnectionsThread extends Thread{
         while (isRunning) {
             try {
                 server.pantalla.write("Esperando jugador ... \n");
-                
                 Socket socket = server.server.accept();
                 ThreadServidor ts = new ThreadServidor(socket, server);
                 ts.start();
@@ -42,6 +43,9 @@ public class ServerConnectionsThread extends Thread{
         if(this.server.isIniciada()){
                 try {
                     System.out.println("Partida iniciada ");
+                    for(Jugador j: server.jugadoresPartida){
+                        j.setEnemigos(this.server.jugadoresPartida);
+                    }
                     this.server.iniciarPartida();
                 } catch (IOException ex) {
                     Logger.getLogger(ServerConnectionsThread.class.getName()).log(Level.SEVERE, null, ex);

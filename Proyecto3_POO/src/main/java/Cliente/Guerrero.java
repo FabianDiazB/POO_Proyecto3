@@ -7,6 +7,7 @@ package Cliente;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Guerrero implements Serializable{
     private int tipo;
     private ArrayList<Arma> armas;
     private int vida;
+    public ImageIcon Imagen;
 
     public Guerrero(String nombre, int tipo) {
         this.nombre = nombre;

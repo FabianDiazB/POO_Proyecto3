@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Cliente;
-
+import Juego.*;
 import Servidor.Servidor;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import Servidor.*;
 /**
  *
  * @author diego
@@ -38,6 +38,10 @@ public class ThreadJugador extends Thread{
         }
     }
     
+    public void enviarMiInfo(){
+        
+    }
+    
     public void run(){
         
         while(true){
@@ -46,15 +50,16 @@ public class ThreadJugador extends Thread{
                 System.out.println(comando);
                 JOptionPane.showMessageDialog(this.player.pantallaG, "Iniciando partida...", "GET READY", JOptionPane.DEFAULT_OPTION);
                 this.player.pantallaA.dispose();
-                PantallaJuego GUIJuego = new PantallaJuego(this.player);
+                System.out.println("esta antes de crear juego");
+                Juego GUIJuego = new Juego(this.player);
                 System.out.println(player.getNombre());
                 this.player.pantallaJuego = GUIJuego;
                 GUIJuego.setVisible(true);
                 break;
             } catch (Exception e) {
             }
+            enviarMiInfo();
         }
-        
 
     }
     

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Servidor;
+import Cliente.*;
 import Juego.*;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class Servidor {
     
     ArrayList<ThreadServidor> jugadoresAceptados;
     ServerConnectionsThread conexionsThread;
+    ArrayList<Jugador> jugadoresPartida = new ArrayList<Jugador>();
     
     public Servidor(PantallaServidor pantalla){
         this.pantalla = pantalla;
@@ -36,6 +38,18 @@ public class Servidor {
             server = new ServerSocket(PORT);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+    
+    public void addJugador(){
+        try {
+            PantallaGuerreros pG= new PantallaGuerreros();
+            pG.setVisible(true);
+            jugadoresPartida.add(pG.jugador);
+            System.out.println("si se pudo");
+        } catch (IOException ex) {
+            System.out.println("no se pudo pra pra cr7 SIUUU");
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -22,9 +22,9 @@ public class ThreadServidor extends Thread{
     private Servidor server;
     private ObjectInputStream entrada;
     private DataInputStream entradaDatos;
-     ObjectOutputStream salida;
-     Jugador jugadorAsignado;
-     String nombre = "";
+    public ObjectOutputStream salida;
+    public Jugador jugadorAsignado;
+    public String nombre = "";
     
     private boolean isRunning = true;
 
@@ -39,6 +39,10 @@ public class ThreadServidor extends Thread{
             
         }
     }
+    
+    public Jugador getJugadorThread(){
+        return this.jugadorAsignado;
+    }
 
     @Override
     public void run() {
@@ -49,13 +53,15 @@ public class ThreadServidor extends Thread{
         }
         server.pantalla.write("Jugador:: " + nombre + " ::conectado");
         try {
-            jugadorAsignado = (Jugador) entrada.readObject();
+            jugadorAsignado = (Jugador)entrada.readObject();
         } catch (IOException ex) {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ThreadServidor.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("Nombre obtenido;");
         System.out.println(jugadorAsignado.getNombre());
+        
+        //recibe la info
         
 
     }

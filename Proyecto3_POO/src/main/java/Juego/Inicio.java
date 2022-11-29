@@ -4,21 +4,27 @@
  */
 package Juego;
 import Servidor.*;
+import Cliente.*;
 /**
  *
  * @author sebas
  */
 public class Inicio extends javax.swing.JFrame {
     private String usuario;
+    private PantallaServidor serverScreen;
     /**
      * Creates new form Inicio
      */
-    public Inicio(String usuario) {
-        this.usuario = usuario;
+    public Inicio() {
+        //this.usuario = usuario;
         initComponents();
         
         
     }
+
+   // private Inicio() {
+  //      throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   // }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -97,7 +103,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaActionPerformed
         // TODO add your handling code here:
-        PantallaServidor serverScreen = new PantallaServidor();
+        serverScreen = new PantallaServidor();
         serverScreen.setVisible(true);
     }//GEN-LAST:event_btnNuevaActionPerformed
 
@@ -105,6 +111,9 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         ///crea thread jugador y se lo añade al usuario
         //toma el puerto y se conecta al server
+        this.txfCodigo.getText();
+        serverScreen.server.addJugador();
+        
         
     }//GEN-LAST:event_btnUnirseActionPerformed
 
