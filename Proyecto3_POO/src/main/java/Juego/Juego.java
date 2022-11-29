@@ -23,7 +23,7 @@ import javax.swing.JLabel;
  */
 public class Juego extends javax.swing.JFrame {
     public Jugador jugador;
-    private ArrayList<Jugador> enemigos;
+    private ArrayList<Jugador> enemigos = new ArrayList<>();
 
      
    // private jugador;
@@ -39,7 +39,7 @@ public class Juego extends javax.swing.JFrame {
         }
         paintWarriors();
         paintPlayers();
-        
+        System.out.println("juego iniciado en GUI JUEGO SIUUU");
        // Commands
     }
 
